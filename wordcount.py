@@ -13,6 +13,8 @@ def word_counter(file_path):
         counted_words = {}
         for line in text_file:
             line = line.rstrip()
+            # line = line.translate(None, string.punctuation)  # https://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string-in-python
+            line = line.lower()
             word_list = line.split()
 
             for word in word_list:
@@ -22,7 +24,6 @@ def word_counter(file_path):
 
     # text_file.close()
 
-result = word_counter("twain.txt")
+result = word_counter("test.txt")
 for word, count in result.iteritems():
     print "{} {}" .format(word, count)
-
